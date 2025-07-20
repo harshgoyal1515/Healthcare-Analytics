@@ -32,8 +32,7 @@ jobs:
 
       - name: Step 2 - Run Data Cleaning
         run: |
-          echo "Running data cleaning..."
-          python data_cleaning.py
+          echo "Skipping data cleaning – handled in etl_pipeline.py..."
 
       - name: Step 3 - Run ETL Pipeline
         run: |
