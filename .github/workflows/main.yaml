@@ -28,24 +28,25 @@ jobs:
 
       - name: Step 1 - Run Data Ingestion
         run: |
-          echo "Skipping separate data ingestion step (handled in etl_pipeline.py)..."
+          echo "Running data ingestion..."
+          python src/ingest_pipeline.py
 
       - name: Step 2 - Run Data Cleaning
         run: |
-          echo "Skipping data cleaning – handled in etl_pipeline.py..."
+          echo "Running data cleaning..."
+          python src/data_cleaning.py
 
       - name: Step 3 - Run ETL Pipeline
         run: |
           echo "Running ETL pipeline..."
-          python etl_pipeline.py
+          python src/etl_pipeline.py
 
       - name: Step 4 - Run Model Training & Evaluation
         run: |
           echo "Running modeling script..."
-          python model_training.py
+          python src/model_training.py
 
       - name: Step 5 - Dash App Syntax Test
         run: |
           echo "Checking dashboard.py syntax..."
-          python -m py_compile dashboard.py
-
+          python -m py_compile src/dashboard.py
