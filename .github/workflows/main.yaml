@@ -28,8 +28,7 @@ jobs:
 
       - name: Step 1 - Run Data Ingestion
         run: |
-          echo "Running data ingestion..."
-          python ingest_pipeline.py
+          echo "Skipping separate data ingestion step (handled in etl_pipeline.py)..."
 
       - name: Step 2 - Run Data Cleaning
         run: |
