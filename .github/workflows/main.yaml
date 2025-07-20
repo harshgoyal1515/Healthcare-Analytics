@@ -1,0 +1,54 @@
+name: Healthcare CSP Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'  # Daily at 1 AM
+
+jobs:
+  full-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy scikit-learn matplotlib seaborn dash plotly sqlite3 joblib
+
+      - name: Step 1 - Run Data Ingestion
+        run: |
+          echo "Running data ingestion..."
+          python ingest_pipeline.py
+
+      - name: Step 2 - Run Data Cleaning
+        run: |
+          echo "Running data cleaning..."
+          python data_cleaning.py
+
+      - name: Step 3 - Run ETL Pipeline
+        run: |
+          echo "Running ETL pipeline..."
+          python etl_pipeline.py
+
+      - name: Step 4 - Run Model Training & Evaluation
+        run: |
+          echo "Running modeling script..."
+          python model_training.py
+
+      - name: Step 5 - Dash App Syntax Test
+        run: |
+          echo "Checking dashboard.py syntax..."
+          python -m py_compile dashboard.py
+

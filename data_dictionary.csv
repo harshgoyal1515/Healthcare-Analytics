@@ -1,0 +1,20 @@
+Field Name,Data Type,Description,Sample Value
+Name,object,TBD,Tiffany Ramirez
+Age,int64,TBD,81
+Gender,object,TBD,Female
+Blood Type,object,TBD,O-
+Medical Condition,object,TBD,Diabetes
+Date of Admission,object,TBD,2022-11-17
+Doctor,object,TBD,Patrick Parker
+Hospital,object,TBD,Wallace-Hamilton
+Insurance Provider,object,TBD,Medicare
+Billing Amount,float64,TBD,37490.98336352819
+Room Number,int64,TBD,146
+Admission Type,object,TBD,Elective
+Discharge Date,object,TBD,2022-12-01
+Medication,object,TBD,Aspirin
+Test Results,object,TBD,Inconclusive
+StayDuration,int64,TBD,14
+IsSeniorCitizen,bool,TBD,True
+AdmissionYear,int64,TBD,2022
+BillingCategory,object,TBD,High
